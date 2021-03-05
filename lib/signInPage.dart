@@ -18,7 +18,7 @@ class SignInPage extends StatelessWidget {
         children: [
           Column(
             children: [
-              Image.asset("assets/justiceLogo1.png",),
+              Image.asset("assets/images/justiceLogo1.png",),
               Text("JUSTICE", style: TextStyle(fontSize: 32,color: Colors.white),),
             ],
           ),
