@@ -13,6 +13,24 @@ class SignInPage extends StatelessWidget {
     return Container(
 
         color: Color(0XFF2387C1),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(
+            children: [
+              Image.asset("assets/justiceLogo1.png",),
+              Text("JUSTICE", style: TextStyle(fontSize: 32,color: Colors.white),),
+            ],
+          ),
+
+          Column(
+            children: [
+
+            ],
+          )
+
+        ],
+      ),
 
     );
 
