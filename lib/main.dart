@@ -5,7 +5,7 @@ import 'signInPage.dart';
 
 void main() {
   runApp(MaterialApp(
-      home: HomePage(),
+      home: SignInPage(),
       theme: ThemeData(
         fontFamily: "Questrial",
         highlightColor: Colors.transparent,
