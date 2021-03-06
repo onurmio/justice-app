@@ -10,7 +10,7 @@ class _ComplainantStatePageState extends State<ComplainantStatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      body: _body(),
+      body: _body("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum purus vel purus ultrices tincidunt. Phasellus ornare lectus mauris, at gravida mi iaculis vel. Nullam nisi nunc, consequat nec libero eu, vehicula laoreet turpis. Etiam magna augue, rhoncus vitae tempus eu, condimentum mollis lorem. Suspendisse id odio nisl. Quisque maximus, orci non laoreet euismod, purus magna vestibulum ex, et pretium ante elit non nibh. Vivamus nec neque at ex elementum pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex enim, venenatis eu nunc vehicula, lacinia scelerisque mauris. Phasellus accumsan odio quis ornare venenatis. Quisque et aliquet leo. Nullam eleifend finibus viverra. Morbi condimentum mauris faucibus ultrices suscipit. Vivamus vel tincidunt augue. Nullam feugiat efficitur mi, ac facilisis elit. Morbi luctus maximus leo, vel tincidunt nibh. Etiam maximus pulvinar dolor sit amet finibus. Suspendisse sollicitudin, neque sed elementum ultricies, nulla mauris vehicula risus, nec faucibus purus arcu sed arcu. Phasellus sit amet rutrum augue. Proin non est aliquet, tincidunt tellus eget, feugiat arcu. Aenean feugiat nulla ac felis blandit, id pretium sem vulputate. Fusce et erat eu arcu faucibus vehicula et quis libero. Praesent venenatis nisi ac laoreet lacinia. Etiam tristique, enim at consectetur dictum, nibh dolor porttitor nibh, vel dictum nibh eros sit amet massa."),
     );
   }
 
@@ -22,7 +22,7 @@ class _ComplainantStatePageState extends State<ComplainantStatePage> {
     );
   }
 
-  Widget _body() {
+  Widget _body(String comState) {
     return SingleChildScrollView(
       child: Container(
         margin: EdgeInsets.all(8.0),
@@ -41,7 +41,7 @@ class _ComplainantStatePageState extends State<ComplainantStatePage> {
         child: Column(
           children: [
             Text(
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum purus vel purus ultrices tincidunt. Phasellus ornare lectus mauris, at gravida mi iaculis vel. Nullam nisi nunc, consequat nec libero eu, vehicula laoreet turpis. Etiam magna augue, rhoncus vitae tempus eu, condimentum mollis lorem. Suspendisse id odio nisl. Quisque maximus, orci non laoreet euismod, purus magna vestibulum ex, et pretium ante elit non nibh. Vivamus nec neque at ex elementum pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex enim, venenatis eu nunc vehicula, lacinia scelerisque mauris. Phasellus accumsan odio quis ornare venenatis. Quisque et aliquet leo. Nullam eleifend finibus viverra. Morbi condimentum mauris faucibus ultrices suscipit. Vivamus vel tincidunt augue. Nullam feugiat efficitur mi, ac facilisis elit. Morbi luctus maximus leo, vel tincidunt nibh. Etiam maximus pulvinar dolor sit amet finibus. Suspendisse sollicitudin, neque sed elementum ultricies, nulla mauris vehicula risus, nec faucibus purus arcu sed arcu. Phasellus sit amet rutrum augue. Proin non est aliquet, tincidunt tellus eget, feugiat arcu. Aenean feugiat nulla ac felis blandit, id pretium sem vulputate. Fusce et erat eu arcu faucibus vehicula et quis libero. Praesent venenatis nisi ac laoreet lacinia. Etiam tristique, enim at consectetur dictum, nibh dolor porttitor nibh, vel dictum nibh eros sit amet massa.",
+              comState,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.normal),
               textAlign: TextAlign.justify,
             ),

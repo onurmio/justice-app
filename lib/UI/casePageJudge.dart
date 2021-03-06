@@ -14,7 +14,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar("60439351d688381f49257c02"),
-      body: _body("Haneye Tecavüz"),
+      body: _body("Haneye Tecavüz","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum purus vel purus ultrices tincidunt. Phasellus ornare lectus mauris, at gravida mi iaculis vel. Nullam nisi nunc, consequat nec libero eu, vehicula laoreet turpis. Etiam magna augue, rhoncus vitae tempus eu, condimentum mollis lorem. Suspendisse id odio nisl. Quisque maximus, orci non laoreet euismod, purus magna vestibulum ex, et pretium ante elit non nibh. Vivamus nec neque at ex elementum pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex enim, venenatis eu nunc vehicula, lacinia scelerisque mauris.","Haneye Tecavüz","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum purus vel purus ultrices tincidunt. Phasellus ornare lectus mauris, at gravida mi iaculis vel. Nullam nisi nunc, consequat nec libero eu, vehicula laoreet turpis. Etiam magna augue, rhoncus vitae tempus eu, condimentum mollis lorem. Suspendisse id odio nisl. Quisque maximus, orci non laoreet euismod, purus magna vestibulum ex, et pretium ante elit non nibh. Vivamus nec neque at ex elementum pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex enim, venenatis eu nunc vehicula, lacinia scelerisque mauris.","5"),
     );
   }
 
@@ -36,7 +36,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
     );
   }
 
-  Widget _body(String complaint) {
+  Widget _body(String complaint, String stateSumCom,String crime,String stateSumDef,String witnessNum) {
     return Column(
       children: [
         Container(
@@ -98,7 +98,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
                         children: <TextSpan>[
                           TextSpan(
                               text:
-                                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum purus vel purus ultrices tincidunt. Phasellus ornare lectus mauris, at gravida mi iaculis vel. Nullam nisi nunc, consequat nec libero eu, vehicula laoreet turpis. Etiam magna augue, rhoncus vitae tempus eu, condimentum mollis lorem. Suspendisse id odio nisl. Quisque maximus, orci non laoreet euismod, purus magna vestibulum ex, et pretium ante elit non nibh. Vivamus nec neque at ex elementum pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex enim, venenatis eu nunc vehicula, lacinia scelerisque mauris.',
+                                  stateSumCom,
                               style: TextStyle(fontWeight: FontWeight.normal)),
                         ],
                       ),
@@ -160,7 +160,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
                           fontWeight: FontWeight.bold, color: Colors.black,fontFamily: "Questrial"),
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'Haneye Tecavüz',
+                            text: crime,
                             style: TextStyle(fontWeight: FontWeight.normal)),
                       ],
                     ),
@@ -184,7 +184,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
                         children: <TextSpan>[
                           TextSpan(
                               text:
-                                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum purus vel purus ultrices tincidunt. Phasellus ornare lectus mauris, at gravida mi iaculis vel. Nullam nisi nunc, consequat nec libero eu, vehicula laoreet turpis. Etiam magna augue, rhoncus vitae tempus eu, condimentum mollis lorem. Suspendisse id odio nisl. Quisque maximus, orci non laoreet euismod, purus magna vestibulum ex, et pretium ante elit non nibh. Vivamus nec neque at ex elementum pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex enim, venenatis eu nunc vehicula, lacinia scelerisque mauris.',
+                                 stateSumDef,
                               style: TextStyle(fontWeight: FontWeight.normal)),
                         ],
                       ),
@@ -240,10 +240,10 @@ class _CasePageJudgeState extends State<CasePageJudge> {
                           fontSize: 18),
                       children: <TextSpan>[
                         TextSpan(
-                            text: '5 ',
+                            text: witnessNum,
                             style: TextStyle(fontWeight: FontWeight.bold)),
                         TextSpan(
-                            text: 'Tanık Bulunmaktadır',
+                            text: ' Tanık Bulunmaktadır',
                             style: TextStyle(fontWeight: FontWeight.normal)),
                       ],
                     ),

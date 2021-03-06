@@ -32,13 +32,16 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
         indicatorColor: Colors.white,
         tabs: [
           Tab(
-            child: Text("Tüm Davalar",textAlign: TextAlign.center,),
+            child: Text(
+              "Tüm Davalar",
+              textAlign: TextAlign.center,
+            ),
           ),
           Tab(
-            child: Text("Sonuçlanan Davalar",textAlign: TextAlign.center),
+            child: Text("Sonuçlanan Davalar", textAlign: TextAlign.center),
           ),
           Tab(
-            child: Text("Ertelenen Davalar",textAlign: TextAlign.center),
+            child: Text("Ertelenen Davalar", textAlign: TextAlign.center),
           )
         ],
       ),
@@ -51,7 +54,8 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
         _searchBox(),
         Flexible(
           child: ListView.builder(
-            itemBuilder: (context, index) => _listCard("60439351d688381f49257c02",true),
+            itemBuilder: (context, index) =>
+                _listCard("60439351d688381f49257c02", true),
             itemCount: 10,
           ),
         ),
@@ -67,7 +71,7 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
     return Text("Devam Eden Davalar");
   }
 
-  Widget _listCard(String caseNo,bool caseState) {
+  Widget _listCard(String caseNo, bool caseState) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -90,43 +94,54 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
                 spreadRadius: 1)
           ],
         ),
-        child: Column(
+        child: Row(
           children: [
-            Row(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Dava No:",
-                  style: TextStyle(fontSize: 16),
+                Row(
+                  children: [
+                    Text(
+                      "Dava No:",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      caseNo,
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  caseNo,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                Row(
+                  children: [
+                    Text(
+                      "Dava Durumu:",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      caseState ? "Sonuçlandı" : "Devam Ediyor",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
               ],
             ),
-            Row(
+            Spacer(),
+            Column(
               children: [
-                Text(
-                  "Dava Durumu:",
-                  style: TextStyle(fontSize: 16),
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  caseState ? "Sonuçlandı" : "Devam Ediyor",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                Spacer(),
                 Icon(
                   Icons.circle,
                   color: caseState ? Colors.green : Colors.yellow,
                 ),
               ],
-            ),
+            )
           ],
         ),
       ),
