@@ -7,8 +7,6 @@ void main() {
   runApp(MaterialApp(
       theme: ThemeData(
         fontFamily: 'Questrial',
-        highlightColor: Colors.transparent,
-        splashColor: Colors.transparent,
       ),
     home: SignInPage(),
     ),
