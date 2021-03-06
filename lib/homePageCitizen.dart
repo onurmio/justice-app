@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:justice/casesPage.dart';
+import 'package:justice/caseListPageJudge.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'caseListPageCitizen.dart';
 
 class HomePageCitizen extends StatefulWidget {
   @override
@@ -95,7 +97,7 @@ class _HomePageCitizenState extends State<HomePageCitizen> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CasesPage(),
+                  builder: (context) => CaseListPageCitizen(),
                 ));
           },
           child: Container(

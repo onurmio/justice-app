@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:justice/casesPage.dart';
+import 'package:justice/caseListPageJudge.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePageJudge extends StatefulWidget {
@@ -104,7 +104,7 @@ class _HomePageJudgeState extends State<HomePageJudge> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CasesPage(),
+                  builder: (context) => CaseListPageJudge(),
                 ));
           },
           child: Container(

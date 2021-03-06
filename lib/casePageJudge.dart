@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:justice/complainantsStatePage.dart';
 import 'package:justice/defendantStatePage.dart';
+import 'package:justice/witnessStatePage.dart';
 
 class CasePageJudge extends StatefulWidget {
   @override
@@ -24,7 +25,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
       title: RichText(
         text: TextSpan(
           text: "Dava No: ",
-          style: TextStyle(fontWeight: FontWeight.normal, color: Colors.white),
+          style: TextStyle(fontWeight: FontWeight.normal, color: Colors.white,fontFamily: "Questrial"),
           children: <TextSpan>[
             TextSpan(
                 text: '60439351d688381f49257c02',
@@ -70,7 +71,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
                     text: TextSpan(
                       text: "Şikayeti: ",
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black),
+                          fontWeight: FontWeight.bold, color: Colors.black,fontFamily: "Questrial"),
                       children: <TextSpan>[
                         TextSpan(
                             text: 'Haneye Tecavüz',
@@ -93,7 +94,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
                       text: TextSpan(
                         text: "Beyan Özeti: ",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black),
+                            fontWeight: FontWeight.bold, color: Colors.black,fontFamily: "Questrial"),
                         children: <TextSpan>[
                           TextSpan(
                               text:
@@ -156,7 +157,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
                     text: TextSpan(
                       text: "İşlenen Suç: ",
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.black),
+                          fontWeight: FontWeight.bold, color: Colors.black,fontFamily: "Questrial"),
                       children: <TextSpan>[
                         TextSpan(
                             text: 'Haneye Tecavüz',
@@ -179,7 +180,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
                       text: TextSpan(
                         text: "Beyan Özeti: ",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black),
+                            fontWeight: FontWeight.bold, color: Colors.black,fontFamily: "Questrial"),
                         children: <TextSpan>[
                           TextSpan(
                               text:
@@ -234,6 +235,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
                       text: "Bu Davada ",
                       style: TextStyle(
                           fontWeight: FontWeight.normal,
+                          fontFamily: "Questrial",
                           color: Colors.black,
                           fontSize: 18),
                       children: <TextSpan>[
@@ -266,8 +268,18 @@ class _CasePageJudgeState extends State<CasePageJudge> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CircleAvatar(
-                    child: Text("1"),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WitnessStatePage(),
+                        ),
+                      );
+                    },
+                    child: CircleAvatar(
+                      child: Text("1"),
+                    ),
                   ),
                   CircleAvatar(
                     child: Text("2"),

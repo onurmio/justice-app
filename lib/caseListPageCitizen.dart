@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:justice/casePageJudge.dart';
 
-class CasesPage extends StatefulWidget {
+import 'casePageCitizen.dart';
+
+class CaseListPageCitizen extends StatefulWidget {
   @override
-  _CasesPageState createState() => _CasesPageState();
+  _CaseListPageCitizenState createState() => _CaseListPageCitizenState();
 }
 
-class _CasesPageState extends State<CasesPage> {
+class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -73,7 +75,7 @@ class _CasesPageState extends State<CasesPage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => CasePageJudge(),
+            builder: (context) => CasePageCitizen(),
           ),
         );
       },
