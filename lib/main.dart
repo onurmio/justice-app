@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'homePage.dart';
+import 'homePageJudge.dart';
 import 'signInPage.dart';
 
 
 void main() {
   runApp(MaterialApp(
-      home: SignInPage(),
       theme: ThemeData(
-        fontFamily: "Questrial",
+        fontFamily: 'Questrial',
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
       ),
+    home: SignInPage(),
     ),
   );
 }
