@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'homePageJudge.dart';
-import 'signInPage.dart';
+import 'UI/signInPage.dart';
 
 
 void main() {

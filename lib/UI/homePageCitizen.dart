@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:justice/caseListPageJudge.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'caseListPageCitizen.dart';
@@ -14,7 +13,7 @@ class _HomePageCitizenState extends State<HomePageCitizen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      body: _body(),
+      body: _body("Onur Mollaibrahimoğlu", "46832949294"),
     );
   }
 
@@ -28,7 +27,7 @@ class _HomePageCitizenState extends State<HomePageCitizen> {
     );
   }
 
-  Widget _body() {
+  Widget _body(String citizenName, String citizenNo) {
     return Column(
       children: [
         Container(
@@ -60,7 +59,7 @@ class _HomePageCitizenState extends State<HomePageCitizen> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Text(
-                            "Onur Mollaibrahimoğlu",
+                            citizenName,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 20),
                           ),
@@ -77,9 +76,11 @@ class _HomePageCitizenState extends State<HomePageCitizen> {
                     "TC Kimlik No:",
                     style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(width: 4,),
+                  SizedBox(
+                    width: 4,
+                  ),
                   Text(
-                    "33423523555",
+                    citizenNo,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 ],
@@ -118,7 +119,7 @@ class _HomePageCitizenState extends State<HomePageCitizen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.wysiwyg,
+                  Icons.account_balance,
                   size: 48,
                 ),
                 SizedBox(
@@ -126,7 +127,7 @@ class _HomePageCitizenState extends State<HomePageCitizen> {
                 ),
                 Text(
                   "Davalar",
-                  style: TextStyle(fontSize: 48),
+                  style: TextStyle(fontSize: 32),
                 )
               ],
             ),
@@ -185,13 +186,22 @@ class _HomePageCitizenState extends State<HomePageCitizen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.share, size: 32),
+                    Icon(Icons.calendar_today_rounded, size: 32),
                     SizedBox(
                       width: 8,
                     ),
-                    Text(
-                      "Paylaş",
-                      style: TextStyle(fontSize: 24),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Dava",
+                          style: TextStyle(fontSize: 24),
+                        ),
+                        Text(
+                          "Takvimi",
+                          style: TextStyle(fontSize: 24),
+                        ),
+                      ],
                     ),
                   ],
                 ),

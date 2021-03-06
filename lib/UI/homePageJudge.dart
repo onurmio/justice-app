@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:justice/caseListPageJudge.dart';
+import 'package:justice/UI/judgeStatePage.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'caseListPageJudge.dart';
 
 class HomePageJudge extends StatefulWidget {
   @override
@@ -12,7 +14,7 @@ class _HomePageJudgeState extends State<HomePageJudge> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      body: _body(),
+      body: _body("Umurbey Taşkın","İstanbul Hakimliği","345543253"),
     );
   }
 
@@ -26,7 +28,7 @@ class _HomePageJudgeState extends State<HomePageJudge> {
     );
   }
 
-  Widget _body() {
+  Widget _body(String judgeName,String judgeInfo,String judgeNo) {
     return Column(
       children: [
         Container(
@@ -61,12 +63,12 @@ class _HomePageJudgeState extends State<HomePageJudge> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Hakim Umurbey Taşkın",
+                                judgeName,
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 20),
                               ),
                               Text(
-                                "İstanbul Hakimliği",
+                                judgeInfo,
                                 style: TextStyle(fontSize: 16),
                               ),
                             ],
@@ -84,9 +86,11 @@ class _HomePageJudgeState extends State<HomePageJudge> {
                     "Sicil No:",
                     style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(width: 4,),
+                  SizedBox(
+                    width: 4,
+                  ),
                   Text(
-                    "345543253",
+                    judgeNo,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 ],
@@ -125,7 +129,7 @@ class _HomePageJudgeState extends State<HomePageJudge> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.wysiwyg,
+                  Icons.account_balance,
                   size: 48,
                 ),
                 SizedBox(
@@ -133,7 +137,7 @@ class _HomePageJudgeState extends State<HomePageJudge> {
                 ),
                 Text(
                   "Davalar",
-                  style: TextStyle(fontSize: 48),
+                  style: TextStyle(fontSize: 32),
                 )
               ],
             ),
@@ -192,13 +196,22 @@ class _HomePageJudgeState extends State<HomePageJudge> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.share, size: 32),
+                    Icon(Icons.calendar_today_rounded, size: 32),
                     SizedBox(
                       width: 8,
                     ),
-                    Text(
-                      "Paylaş",
-                      style: TextStyle(fontSize: 24),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Dava",
+                          style: TextStyle(fontSize: 24),
+                        ),
+                        Text(
+                          "Takvimi",
+                          style: TextStyle(fontSize: 24),
+                        ),
+                      ],
                     ),
                   ],
                 ),

@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:justice/complainantsStatePage.dart';
-import 'package:justice/defendantStatePage.dart';
-import 'package:justice/witnessStatePage.dart';
+import 'package:justice/UI/complainantsStatePage.dart';
+import 'package:justice/UI/defendantStatePage.dart';
+import 'package:justice/UI/witnessStatePage.dart';
 
 import 'judgeStatePage.dart';
 

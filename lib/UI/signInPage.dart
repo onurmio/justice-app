@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:justice/citizenLoginPage.dart';
-import 'package:justice/homePageJudge.dart';
+import 'package:justice/UI/loginPageCitizen.dart';
+import 'package:justice/UI/loginPageJudge.dart';
 
 import 'homePageCitizen.dart';
 
@@ -41,7 +41,7 @@ class _SignInPageState extends State<SignInPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => citizenLoginPage(),
+                        builder: (context) => LoginPageJudge(),
                       ));
                 },
                 child: Container(
@@ -68,7 +68,7 @@ class _SignInPageState extends State<SignInPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePageCitizen(),
+                        builder: (context) => LoginPageCitizen(),
                       ));
                 },
                 child: Container(

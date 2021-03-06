@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:justice/complainantsStatePage.dart';
-import 'package:justice/defendantStatePage.dart';
-import 'package:justice/witnessStatePage.dart';
+import 'package:justice/UI/complainantsStatePage.dart';
+import 'package:justice/UI/defendantStatePage.dart';
+import 'package:justice/UI/witnessStatePage.dart';
 
 class CasePageJudge extends StatefulWidget {
   @override
@@ -13,12 +13,12 @@ class _CasePageJudgeState extends State<CasePageJudge> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBar(),
-      body: _body(),
+      appBar: _appBar("60439351d688381f49257c02"),
+      body: _body("Haneye Tecavüz"),
     );
   }
 
-  Widget _appBar() {
+  Widget _appBar(String caseNo) {
     return AppBar(
       backgroundColor: Color(0XFF2387C1),
       centerTitle: true,
@@ -28,7 +28,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
           style: TextStyle(fontWeight: FontWeight.normal, color: Colors.white,fontFamily: "Questrial"),
           children: <TextSpan>[
             TextSpan(
-                text: '60439351d688381f49257c02',
+                text: caseNo,
                 style: TextStyle(fontWeight: FontWeight.bold)),
           ],
         ),
@@ -36,7 +36,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
     );
   }
 
-  Widget _body() {
+  Widget _body(String complaint) {
     return Column(
       children: [
         Container(
@@ -74,7 +74,7 @@ class _CasePageJudgeState extends State<CasePageJudge> {
                           fontWeight: FontWeight.bold, color: Colors.black,fontFamily: "Questrial"),
                       children: <TextSpan>[
                         TextSpan(
-                            text: 'Haneye Tecavüz',
+                            text: complaint,
                             style: TextStyle(fontWeight: FontWeight.normal)),
                       ],
                     ),

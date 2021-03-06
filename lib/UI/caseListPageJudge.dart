@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:justice/casePageJudge.dart';
+import 'package:justice/UI/casePageJudge.dart';
 
-import 'casePageCitizen.dart';
-
-class CaseListPageCitizen extends StatefulWidget {
+class CaseListPageJudge extends StatefulWidget {
   @override
-  _CaseListPageCitizenState createState() => _CaseListPageCitizenState();
+  _CaseListPageJudgeState createState() => _CaseListPageJudgeState();
 }
 
-class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
+class _CaseListPageJudgeState extends State<CaseListPageJudge> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -53,7 +51,7 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
         _searchBox(),
         Flexible(
           child: ListView.builder(
-            itemBuilder: (context, index) => _listCard(),
+            itemBuilder: (context, index) => _listCard("60439351d688381f49257c02",true),
             itemCount: 10,
           ),
         ),
@@ -66,16 +64,16 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
   }
 
   Widget _postPonedCasesBody() {
-    return Text("Ertelenen Davalar");
+    return Text("Devam Eden Davalar");
   }
 
-  Widget _listCard() {
+  Widget _listCard(String caseNo,bool caseState) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => CasePageCitizen(),
+            builder: (context) => CasePageJudge(),
           ),
         );
       },
@@ -104,7 +102,7 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
                   width: 8,
                 ),
                 Text(
-                  "60439351d688381f49257c02",
+                  caseNo,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -119,13 +117,13 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
                   width: 8,
                 ),
                 Text(
-                  "Sonuçlandı",
+                  caseState ? "Sonuçlandı" : "Devam Ediyor",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 Spacer(),
                 Icon(
                   Icons.circle,
-                  color: Colors.green,
+                  color: caseState ? Colors.green : Colors.yellow,
                 ),
               ],
             ),
