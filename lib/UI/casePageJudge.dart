@@ -5,16 +5,20 @@ import 'package:justice/UI/defendantStatePage.dart';
 import 'package:justice/UI/witnessStatePage.dart';
 
 class CasePageJudge extends StatefulWidget {
+  String caseNo;
+
   @override
   _CasePageJudgeState createState() => _CasePageJudgeState();
+
+  CasePageJudge(this.caseNo);
 }
 
 class _CasePageJudgeState extends State<CasePageJudge> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBar("60439351d688381f49257c02"),
-      body: _body("Haneye Tecavüz","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum purus vel purus ultrices tincidunt. Phasellus ornare lectus mauris, at gravida mi iaculis vel. Nullam nisi nunc, consequat nec libero eu, vehicula laoreet turpis. Etiam magna augue, rhoncus vitae tempus eu, condimentum mollis lorem. Suspendisse id odio nisl. Quisque maximus, orci non laoreet euismod, purus magna vestibulum ex, et pretium ante elit non nibh. Vivamus nec neque at ex elementum pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex enim, venenatis eu nunc vehicula, lacinia scelerisque mauris.","Haneye Tecavüz","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum purus vel purus ultrices tincidunt. Phasellus ornare lectus mauris, at gravida mi iaculis vel. Nullam nisi nunc, consequat nec libero eu, vehicula laoreet turpis. Etiam magna augue, rhoncus vitae tempus eu, condimentum mollis lorem. Suspendisse id odio nisl. Quisque maximus, orci non laoreet euismod, purus magna vestibulum ex, et pretium ante elit non nibh. Vivamus nec neque at ex elementum pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex enim, venenatis eu nunc vehicula, lacinia scelerisque mauris.","5"),
+      appBar: _appBar(widget.caseNo),
+      body: _body("Lorem ipsum","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum purus vel purus ultrices tincidunt. Phasellus ornare lectus mauris, at gravida mi iaculis vel. Nullam nisi nunc, consequat nec libero eu, vehicula laoreet turpis. Etiam magna augue, rhoncus vitae tempus eu, condimentum mollis lorem. Suspendisse id odio nisl. Quisque maximus, orci non laoreet euismod, purus magna vestibulum ex, et pretium ante elit non nibh. Vivamus nec neque at ex elementum pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex enim, venenatis eu nunc vehicula, lacinia scelerisque mauris.","Lorem ipsum","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum purus vel purus ultrices tincidunt. Phasellus ornare lectus mauris, at gravida mi iaculis vel. Nullam nisi nunc, consequat nec libero eu, vehicula laoreet turpis. Etiam magna augue, rhoncus vitae tempus eu, condimentum mollis lorem. Suspendisse id odio nisl. Quisque maximus, orci non laoreet euismod, purus magna vestibulum ex, et pretium ante elit non nibh. Vivamus nec neque at ex elementum pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex enim, venenatis eu nunc vehicula, lacinia scelerisque mauris.","5"),
     );
   }
 

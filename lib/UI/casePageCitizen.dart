@@ -7,8 +7,12 @@ import 'package:justice/UI/witnessStatePage.dart';
 import 'judgeStatePage.dart';
 
 class CasePageCitizen extends StatefulWidget {
+  String caseNo;
+
   @override
   _CasePageCitizenState createState() => _CasePageCitizenState();
+
+  CasePageCitizen(this.caseNo);
 }
 
 class _CasePageCitizenState extends State<CasePageCitizen> {
@@ -30,7 +34,7 @@ class _CasePageCitizenState extends State<CasePageCitizen> {
           style: TextStyle(fontWeight: FontWeight.normal, color: Colors.white),
           children: <TextSpan>[
             TextSpan(
-                text: '60439351d688381f49257c02',
+                text: widget.caseNo,
                 style: TextStyle(fontWeight: FontWeight.bold)),
           ],
         ),
@@ -125,7 +129,7 @@ class _CasePageCitizenState extends State<CasePageCitizen> {
                             fontWeight: FontWeight.bold, color: Colors.black,fontFamily: "Questrial"),
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Haneye Tecavüz',
+                              text: 'Lorem ipsum',
                               style: TextStyle(fontWeight: FontWeight.normal)),
                         ],
                       ),
@@ -211,7 +215,7 @@ class _CasePageCitizenState extends State<CasePageCitizen> {
                             fontWeight: FontWeight.bold, color: Colors.black,fontFamily: "Questrial"),
                         children: <TextSpan>[
                           TextSpan(
-                              text: 'Haneye Tecavüz',
+                              text: 'Lorem ipsum',
                               style: TextStyle(fontWeight: FontWeight.normal)),
                         ],
                       ),

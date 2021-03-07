@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:justice/UI/casePageJudge.dart';
+import 'package:justice/core/providers/casesProvider.dart';
+import 'package:provider/provider.dart';
 
 class CaseListPageJudge extends StatefulWidget {
   @override
@@ -7,8 +9,11 @@ class CaseListPageJudge extends StatefulWidget {
 }
 
 class _CaseListPageJudgeState extends State<CaseListPageJudge> {
+  CasesProvider _casesProvider;
+
   @override
   Widget build(BuildContext context) {
+    _casesProvider = Provider.of<CasesProvider>(context);
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -38,10 +43,10 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
             ),
           ),
           Tab(
-            child: Text("Sonuçlanan Davalar", textAlign: TextAlign.center),
+            child: Text("Devam Eden Davalar", textAlign: TextAlign.center),
           ),
           Tab(
-            child: Text("Devam Eden Davalar", textAlign: TextAlign.center),
+            child: Text("Sonuçlanan Davalar", textAlign: TextAlign.center),
           )
         ],
       ),
@@ -54,9 +59,11 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
         _searchBox(),
         Flexible(
           child: ListView.builder(
-            itemBuilder: (context, index) =>
-                _listCard("60439351d688381f49257c02", false),
-            itemCount: 10,
+            itemBuilder: (context, index) {
+              Map _case = _casesProvider.cases[index];
+              return _listCard(_case["case_no"], _case["status"]);
+            },
+            itemCount: _casesProvider.cases.length,
           ),
         ),
       ],
@@ -69,9 +76,11 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
         _searchBox(),
         Flexible(
           child: ListView.builder(
-            itemBuilder: (context, index) =>
-                _listCard("60439351d688381f49257c02", true),
-            itemCount: 10,
+            itemBuilder: (context, index) {
+              Map _case = _casesProvider.closedCases[index];
+              return _listCard(_case["case_no"], _case["status"]);
+            },
+            itemCount: _casesProvider.closedCases.length,
           ),
         ),
       ],
@@ -84,9 +93,11 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
         _searchBox(),
         Flexible(
           child: ListView.builder(
-            itemBuilder: (context, index) =>
-                _listCard("60439351d688381f49257c02", false),
-            itemCount: 10,
+            itemBuilder: (context, index) {
+              Map _case = _casesProvider.ongoingCases[index];
+              return _listCard(_case["case_no"], _case["status"]);
+            },
+            itemCount: _casesProvider.ongoingCases.length,
           ),
         ),
       ],
@@ -99,7 +110,7 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => CasePageJudge(),
+            builder: (context) => CasePageJudge(caseNo),
           ),
         );
       },

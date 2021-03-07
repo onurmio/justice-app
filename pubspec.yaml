@@ -24,6 +24,8 @@ dependencies:
   flutter_tts: ^2.1.0
   url_launcher: ^6.0.2
   syncfusion_flutter_calendar: ^18.4.46
+  provider: ^5.0.0
+  dio: ^3.0.10
 
   flutter:
     sdk: flutter

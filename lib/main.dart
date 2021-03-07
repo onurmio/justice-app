@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:justice/core/providerRegister.dart';
 import 'UI/signInPage.dart';
 
 
@@ -8,7 +9,7 @@ void main() {
         fontFamily: 'Questrial',
         primaryColor: Color(0XFF2387C1),
       ),
-    home: SignInPage(),
+    home: ProviderRegister(SignInPage()),
     ),
   );
 }

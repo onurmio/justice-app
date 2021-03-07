@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:justice/UI/caseCalendar.dart';
 import 'package:justice/UI/judgeStatePage.dart';
+import 'package:justice/core/models/user.dart';
+import 'package:justice/core/providers/userProvider.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'caseListPageJudge.dart';
@@ -13,9 +16,10 @@ class HomePageJudge extends StatefulWidget {
 class _HomePageJudgeState extends State<HomePageJudge> {
   @override
   Widget build(BuildContext context) {
+    User user = Provider.of<UserProvider>(context, listen: false).user;
     return Scaffold(
       appBar: _appBar(),
-      body: _body("Umurbey Taşkın", "İstanbul Hakimliği", "345543253"),
+      body: _body(user.name+" "+user.surname, "İstanbul Hakimliği", user.citizenNo),
     );
   }
 

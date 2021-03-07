@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:justice/UI/casePageJudge.dart';
+import 'package:justice/core/providers/casesProvider.dart';
+import 'package:justice/core/providers/userProvider.dart';
+import 'package:provider/provider.dart';
 
 import 'casePageCitizen.dart';
 
@@ -9,8 +12,11 @@ class CaseListPageCitizen extends StatefulWidget {
 }
 
 class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
+  CasesProvider _casesProvider;
+
   @override
   Widget build(BuildContext context) {
+    _casesProvider = Provider.of<CasesProvider>(context);
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -34,13 +40,16 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
         indicatorColor: Colors.white,
         tabs: [
           Tab(
-            child: Text("Tüm Davalar",textAlign: TextAlign.center,),
+            child: Text(
+              "Tüm Davalar",
+              textAlign: TextAlign.center,
+            ),
           ),
           Tab(
-            child: Text("Sonuçlanan Davalar",textAlign: TextAlign.center),
+            child: Text("Devam Eden Davalar", textAlign: TextAlign.center),
           ),
           Tab(
-            child: Text("Devam Eden Davalar",textAlign: TextAlign.center),
+            child: Text("Sonuçlanan Davalar", textAlign: TextAlign.center),
           )
         ],
       ),
@@ -53,8 +62,11 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
         _searchBox(),
         Flexible(
           child: ListView.builder(
-            itemBuilder: (context, index) => _listCard("60439351d688381f49257c02", false),
-            itemCount: 10,
+            itemBuilder: (context, index) {
+              Map _case = _casesProvider.cases[index];
+              return _listCard(_case["case_no"], _case["status"]);
+            },
+            itemCount: _casesProvider.cases.length,
           ),
         ),
       ],
@@ -67,8 +79,11 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
         _searchBox(),
         Flexible(
           child: ListView.builder(
-            itemBuilder: (context, index) => _listCard("60439351d688381f49257c02", true),
-            itemCount: 10,
+            itemBuilder: (context, index) {
+              Map _case = _casesProvider.closedCases[index];
+              return _listCard(_case["case_no"], _case["status"]);
+            },
+            itemCount: _casesProvider.closedCases.length,
           ),
         ),
       ],
@@ -81,8 +96,11 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
         _searchBox(),
         Flexible(
           child: ListView.builder(
-            itemBuilder: (context, index) => _listCard("60439351d688381f49257c02", false),
-            itemCount: 10,
+            itemBuilder: (context, index) {
+              Map _case = _casesProvider.ongoingCases[index];
+              return _listCard(_case["case_no"], _case["status"]);
+            },
+            itemCount: _casesProvider.ongoingCases.length,
           ),
         ),
       ],
@@ -95,7 +113,7 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => CasePageCitizen(),
+            builder: (context) => CasePageJudge(caseNo),
           ),
         );
       },
@@ -112,43 +130,54 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
                 spreadRadius: 1)
           ],
         ),
-        child: Column(
+        child: Row(
           children: [
-            Row(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Dava No:",
-                  style: TextStyle(fontSize: 16),
+                Row(
+                  children: [
+                    Text(
+                      "Dava No:",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      caseNo,
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  caseNo,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                Row(
+                  children: [
+                    Text(
+                      "Dava Durumu:",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      caseState ? "Sonuçlandı" : "Devam Ediyor",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
               ],
             ),
-            Row(
+            Spacer(),
+            Column(
               children: [
-                Text(
-                  "Dava Durumu:",
-                  style: TextStyle(fontSize: 16),
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                    caseState ? "Sonuçlandı" : "Devam Ediyor",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                Spacer(),
                 Icon(
                   Icons.circle,
-                  color: Colors.green,
+                  color: caseState ? Colors.green : Colors.yellow,
                 ),
               ],
-            ),
+            )
           ],
         ),
       ),
@@ -166,19 +195,17 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
             color: Colors.grey,
             width: 0.8,
           )),
-      child: Expanded(
-        child: Padding(
-          padding: const EdgeInsets.only(right: 8, left: 4),
-          child: TextFormField(
-            textAlignVertical: TextAlignVertical.center,
-            maxLines: 1,
-            cursorColor: Color(0XFF2387C1),
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              suffixIcon: Icon(Icons.search),
-              border: InputBorder.none,
-              hintText: "Arama",
-            ),
+      child: Padding(
+        padding: const EdgeInsets.only(right: 8, left: 4),
+        child: TextFormField(
+          textAlignVertical: TextAlignVertical.center,
+          maxLines: 1,
+          cursorColor: Color(0XFF2387C1),
+          keyboardType: TextInputType.number,
+          decoration: InputDecoration(
+            suffixIcon: Icon(Icons.search),
+            border: InputBorder.none,
+            hintText: "Arama",
           ),
         ),
       ),
