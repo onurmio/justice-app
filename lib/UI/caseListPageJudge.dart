@@ -16,7 +16,7 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
           children: [
             _allCasesBody(),
             _doneCasesBody(),
-            _postPonedCasesBody(),
+            _postponedCasesBody(),
           ],
         ),
         appBar: _appBar(),
@@ -67,7 +67,7 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
     return Text("Sonuçlanan Davalar");
   }
 
-  Widget _postPonedCasesBody() {
+  Widget _postponedCasesBody() {
     return Text("Devam Eden Davalar");
   }
 
@@ -152,36 +152,27 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
     return Container(
       margin: EdgeInsets.all(8),
       width: MediaQuery.of(context).size.width,
-      height: 42,
+      height: 48,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(16)),
           border: Border.all(
             color: Colors.grey,
             width: 0.8,
           )),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4.0),
-            child: Icon(
-              Icons.search,
-              color: Colors.black.withOpacity(0.5),
+      child: Expanded(
+        child: Padding(
+          padding: const EdgeInsets.only(right: 8, left: 4),
+          child: TextFormField(
+            textAlignVertical: TextAlignVertical.center,
+            maxLines: 1,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              suffixIcon: Icon(Icons.search),
+              border: InputBorder.none,
+              hintText: "Arama",
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 8, left: 4),
-              child: TextFormField(
-                maxLines: 1,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Arama",
-                ),
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

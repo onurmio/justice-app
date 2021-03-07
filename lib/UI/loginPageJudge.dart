@@ -47,9 +47,15 @@ class _LoginPageJudgeState extends State<LoginPageJudge> {
                 ),
                 child: TextFormField(
                   maxLines: 1,
+                  textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.person),
                       border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
                       hintText: "T.C kimlik numaranızı giriniz"),
                 ),
               ),
@@ -68,9 +74,11 @@ class _LoginPageJudgeState extends State<LoginPageJudge> {
                   borderRadius: BorderRadius.all(Radius.circular(16)),
                 ),
                 child: TextFormField(
+                  textAlignVertical: TextAlignVertical.center,
                   maxLines: 1,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.book),
                       border: InputBorder.none,
                       hintText: "Sicil Numaranızı Giriniz"),
                 ),
@@ -90,11 +98,13 @@ class _LoginPageJudgeState extends State<LoginPageJudge> {
                   borderRadius: BorderRadius.all(Radius.circular(16)),
                 ),
                 child: TextFormField(
+                  textAlignVertical: TextAlignVertical.center,
                   maxLines: 1,
                   obscureText: true,
-                  keyboardType: TextInputType.number,
                   decoration: InputDecoration(
-                      border: InputBorder.none, hintText: "Şifreniz"),
+                      prefixIcon: Icon(Icons.lock),
+                      border: InputBorder.none,
+                      hintText: "Şifreniz"),
                 ),
               ),
               GestureDetector(

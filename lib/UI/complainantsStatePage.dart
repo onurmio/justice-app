@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 class ComplainantStatePage extends StatefulWidget {
   @override
@@ -6,11 +7,48 @@ class ComplainantStatePage extends StatefulWidget {
 }
 
 class _ComplainantStatePageState extends State<ComplainantStatePage> {
+
+  String comState;
+
+  FlutterTts flutterTts = FlutterTts();
+  bool isPlayed = false;
+
+  Future _speak() async {
+    await flutterTts.setLanguage("tr-TR");
+    var result = await flutterTts.speak(comState);
+    if (result == 1) setState(() => isPlayed = true);
+  }
+
+  Future _stop() async {
+    var result = await flutterTts.stop();
+    if (result == 1) setState(() => isPlayed = false);
+  }
+
+  Future _pause() async {
+    var result = await flutterTts.pause();
+    if (result == 1) setState(() => isPlayed = false);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    comState =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum purus vel purus ultrices tincidunt. Phasellus ornare lectus mauris, at gravida mi iaculis vel. Nullam nisi nunc, consequat nec libero eu, vehicula laoreet turpis. Etiam magna augue, rhoncus vitae tempus eu, condimentum mollis lorem. Suspendisse id odio nisl. Quisque maximus, orci non laoreet euismod, purus magna vestibulum ex, et pretium ante elit non nibh. Vivamus nec neque at ex elementum pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex enim, venenatis eu nunc vehicula, lacinia scelerisque mauris. Phasellus accumsan odio quis ornare venenatis. Quisque et aliquet leo. Nullam eleifend finibus viverra. Morbi condimentum mauris faucibus ultrices suscipit. Vivamus vel tincidunt augue. Nullam feugiat efficitur mi, ac facilisis elit. Morbi luctus maximus leo, vel tincidunt nibh. Etiam maximus pulvinar dolor sit amet finibus. Suspendisse sollicitudin, neque sed elementum ultricies, nulla mauris vehicula risus, nec faucibus purus arcu sed arcu. Phasellus sit amet rutrum augue. Proin non est aliquet, tincidunt tellus eget, feugiat arcu. Aenean feugiat nulla ac felis blandit, id pretium sem vulputate. Fusce et erat eu arcu faucibus vehicula et quis libero. Praesent venenatis nisi ac laoreet lacinia. Etiam tristique, enim at consectetur dictum, nibh dolor porttitor nibh, vel dictum nibh eros sit amet massa.";
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    flutterTts.stop();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      body: _body("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum purus vel purus ultrices tincidunt. Phasellus ornare lectus mauris, at gravida mi iaculis vel. Nullam nisi nunc, consequat nec libero eu, vehicula laoreet turpis. Etiam magna augue, rhoncus vitae tempus eu, condimentum mollis lorem. Suspendisse id odio nisl. Quisque maximus, orci non laoreet euismod, purus magna vestibulum ex, et pretium ante elit non nibh. Vivamus nec neque at ex elementum pellentesque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex enim, venenatis eu nunc vehicula, lacinia scelerisque mauris. Phasellus accumsan odio quis ornare venenatis. Quisque et aliquet leo. Nullam eleifend finibus viverra. Morbi condimentum mauris faucibus ultrices suscipit. Vivamus vel tincidunt augue. Nullam feugiat efficitur mi, ac facilisis elit. Morbi luctus maximus leo, vel tincidunt nibh. Etiam maximus pulvinar dolor sit amet finibus. Suspendisse sollicitudin, neque sed elementum ultricies, nulla mauris vehicula risus, nec faucibus purus arcu sed arcu. Phasellus sit amet rutrum augue. Proin non est aliquet, tincidunt tellus eget, feugiat arcu. Aenean feugiat nulla ac felis blandit, id pretium sem vulputate. Fusce et erat eu arcu faucibus vehicula et quis libero. Praesent venenatis nisi ac laoreet lacinia. Etiam tristique, enim at consectetur dictum, nibh dolor porttitor nibh, vel dictum nibh eros sit amet massa."),
+      body: _body(),
     );
   }
 
@@ -19,10 +57,28 @@ class _ComplainantStatePageState extends State<ComplainantStatePage> {
       backgroundColor: Color(0XFF2387C1),
       centerTitle: true,
       title: Text("Davacı Beyanı"),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.replay),
+          onPressed: () {
+            _stop();
+          },
+        ),
+        IconButton(
+          icon: Icon(!isPlayed ? Icons.play_circle_outline : Icons.pause),
+          onPressed: () {
+            if (!isPlayed) {
+              _speak();
+            } else {
+              _pause();
+            }
+          },
+        ),
+      ],
     );
   }
 
-  Widget _body(String comState) {
+  Widget _body() {
     return SingleChildScrollView(
       child: Container(
         margin: EdgeInsets.all(8.0),

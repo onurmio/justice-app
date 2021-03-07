@@ -48,9 +48,11 @@ class _LoginPageCitizenState extends State<LoginPageCitizen> {
                   borderRadius: BorderRadius.all(Radius.circular(16)),
                 ),
                 child: TextFormField(
+                  textAlignVertical: TextAlignVertical.center,
                   maxLines: 1,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.person),
                       border: InputBorder.none,
                       hintText: "T.C kimlik numaranızı giriniz"),
                 ),
@@ -70,10 +72,11 @@ class _LoginPageCitizenState extends State<LoginPageCitizen> {
                   borderRadius: BorderRadius.all(Radius.circular(16)),
                 ),
                 child: TextFormField(
+                  textAlignVertical: TextAlignVertical.center,
                   maxLines: 1,
                   obscureText: true,
-                  keyboardType: TextInputType.number,
                   decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.lock),
                       border: InputBorder.none, hintText: "Şifreniz"),
                 ),
               ),
