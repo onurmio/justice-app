@@ -85,7 +85,6 @@ class _WitnessStatePageState extends State<WitnessStatePage> {
       child: Container(
         margin: EdgeInsets.all(8.0),
         padding: EdgeInsets.all(16.0),
-        height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             color: Colors.white,
