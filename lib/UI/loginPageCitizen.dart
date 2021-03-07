@@ -50,6 +50,7 @@ class _LoginPageCitizenState extends State<LoginPageCitizen> {
                 child: TextFormField(
                   textAlignVertical: TextAlignVertical.center,
                   maxLines: 1,
+                  cursorColor: Color(0XFF2387C1),
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                       prefixIcon: Icon(Icons.person),
@@ -74,6 +75,7 @@ class _LoginPageCitizenState extends State<LoginPageCitizen> {
                 child: TextFormField(
                   textAlignVertical: TextAlignVertical.center,
                   maxLines: 1,
+                  cursorColor: Color(0XFF2387C1),
                   obscureText: true,
                   decoration: InputDecoration(
                       prefixIcon: Icon(Icons.lock),

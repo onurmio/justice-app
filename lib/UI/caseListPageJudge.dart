@@ -41,7 +41,7 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
             child: Text("Sonuçlanan Davalar", textAlign: TextAlign.center),
           ),
           Tab(
-            child: Text("Ertelenen Davalar", textAlign: TextAlign.center),
+            child: Text("Devam Eden Davalar", textAlign: TextAlign.center),
           )
         ],
       ),
@@ -49,6 +49,21 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
   }
 
   Widget _allCasesBody() {
+    return Column(
+      children: [
+        _searchBox(),
+        Flexible(
+          child: ListView.builder(
+            itemBuilder: (context, index) =>
+                _listCard("60439351d688381f49257c02", false),
+            itemCount: 10,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _doneCasesBody() {
     return Column(
       children: [
         _searchBox(),
@@ -63,12 +78,19 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
     );
   }
 
-  Widget _doneCasesBody() {
-    return Text("Sonuçlanan Davalar");
-  }
-
   Widget _postponedCasesBody() {
-    return Text("Devam Eden Davalar");
+    return Column(
+      children: [
+        _searchBox(),
+        Flexible(
+          child: ListView.builder(
+            itemBuilder: (context, index) =>
+                _listCard("60439351d688381f49257c02", false),
+            itemCount: 10,
+          ),
+        ),
+      ],
+    );
   }
 
   Widget _listCard(String caseNo, bool caseState) {
@@ -165,6 +187,7 @@ class _CaseListPageJudgeState extends State<CaseListPageJudge> {
           child: TextFormField(
             textAlignVertical: TextAlignVertical.center,
             maxLines: 1,
+            cursorColor: Color(0XFF2387C1),
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
               suffixIcon: Icon(Icons.search),

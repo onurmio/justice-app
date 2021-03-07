@@ -47,6 +47,7 @@ class _LoginPageJudgeState extends State<LoginPageJudge> {
                 ),
                 child: TextFormField(
                   maxLines: 1,
+                  cursorColor: Color(0XFF2387C1),
                   textAlignVertical: TextAlignVertical.center,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
@@ -76,6 +77,7 @@ class _LoginPageJudgeState extends State<LoginPageJudge> {
                 child: TextFormField(
                   textAlignVertical: TextAlignVertical.center,
                   maxLines: 1,
+                  cursorColor: Color(0XFF2387C1),
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                       prefixIcon: Icon(Icons.book),
@@ -100,6 +102,7 @@ class _LoginPageJudgeState extends State<LoginPageJudge> {
                 child: TextFormField(
                   textAlignVertical: TextAlignVertical.center,
                   maxLines: 1,
+                  cursorColor: Color(0XFF2387C1),
                   obscureText: true,
                   decoration: InputDecoration(
                       prefixIcon: Icon(Icons.lock),

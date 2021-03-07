@@ -102,36 +102,54 @@ class _HomePageCitizenState extends State<HomePageCitizen> {
                   builder: (context) => CaseListPageCitizen(),
                 ));
           },
-          child: Container(
-            margin: EdgeInsets.all(8.0),
-            padding: EdgeInsets.all(8.0),
-            height: MediaQuery.of(context).size.height / 5,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(16)),
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      blurRadius: 3,
-                      spreadRadius: 1)
-                ]),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.account_balance,
-                  size: 48,
+          child: Stack(
+            children: [
+              Container(
+                margin: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.0),
+                height: MediaQuery.of(context).size.height / 5,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(16)),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          blurRadius: 3,
+                          spreadRadius: 1)
+                    ]),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.account_balance,
+                      size: 48,
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      "Davalar",
+                      style: TextStyle(fontSize: 32),
+                    )
+                  ],
                 ),
-                SizedBox(
-                  width: 8,
+              ),
+              Positioned(
+                right: 0,
+                top: 0,
+                child: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.red,
+                  ),
+                  width: 24,
+                  height: 24,
+                  margin: EdgeInsets.all(4),
+                  child: Center(child: Text("12",style: TextStyle(color: Colors.white),)),
                 ),
-                Text(
-                  "Davalar",
-                  style: TextStyle(fontSize: 32),
-                )
-              ],
-            ),
+              ),
+            ],
           ),
         ),
         Row(
@@ -220,6 +238,8 @@ class _HomePageCitizenState extends State<HomePageCitizen> {
             ),
           ],
         ),
+        Spacer(),
+        Text("JusticeApp Version 1.0.0"),
       ],
     );
   }

@@ -6,7 +6,7 @@ void main() {
   runApp(MaterialApp(
       theme: ThemeData(
         fontFamily: 'Questrial',
-        accentColor: Color(0XFF2387C1),
+        primaryColor: Color(0XFF2387C1),
       ),
     home: SignInPage(),
     ),

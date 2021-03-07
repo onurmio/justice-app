@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:justice/UI/caseCalendar.dart';
 import 'package:justice/UI/judgeStatePage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,7 +15,7 @@ class _HomePageJudgeState extends State<HomePageJudge> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(),
-      body: _body("Umurbey Taşkın","İstanbul Hakimliği","345543253"),
+      body: _body("Umurbey Taşkın", "İstanbul Hakimliği", "345543253"),
     );
   }
 
@@ -28,7 +29,7 @@ class _HomePageJudgeState extends State<HomePageJudge> {
     );
   }
 
-  Widget _body(String judgeName,String judgeInfo,String judgeNo) {
+  Widget _body(String judgeName, String judgeInfo, String judgeNo) {
     return Column(
       children: [
         Container(
@@ -180,40 +181,50 @@ class _HomePageJudgeState extends State<HomePageJudge> {
               ),
             ),
             Expanded(
-              child: Container(
-                margin: EdgeInsets.all(8.0),
-                padding: EdgeInsets.all(8.0),
-                height: MediaQuery.of(context).size.height / 5,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          blurRadius: 3,
-                          spreadRadius: 1)
-                    ]),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.calendar_today_rounded, size: 32),
-                    SizedBox(
-                      width: 8,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CaseCalendar(),
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Dava",
-                          style: TextStyle(fontSize: 24),
-                        ),
-                        Text(
-                          "Takvimi",
-                          style: TextStyle(fontSize: 24),
-                        ),
-                      ],
-                    ),
-                  ],
+                  );
+                },
+                child: Container(
+                  margin: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
+                  height: MediaQuery.of(context).size.height / 5,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(16)),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            blurRadius: 3,
+                            spreadRadius: 1)
+                      ]),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.calendar_today_rounded, size: 32),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Dava",
+                            style: TextStyle(fontSize: 24),
+                          ),
+                          Text(
+                            "Takvimi",
+                            style: TextStyle(fontSize: 24),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

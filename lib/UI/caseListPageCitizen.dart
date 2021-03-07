@@ -18,7 +18,7 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
           children: [
             _allCasesBody(),
             _doneCasesBody(),
-            _postPonedCasesBody(),
+            _postponedCasesBody(),
           ],
         ),
         appBar: _appBar(),
@@ -40,7 +40,7 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
             child: Text("Sonuçlanan Davalar",textAlign: TextAlign.center),
           ),
           Tab(
-            child: Text("Ertelenen Davalar",textAlign: TextAlign.center),
+            child: Text("Devam Eden Davalar",textAlign: TextAlign.center),
           )
         ],
       ),
@@ -53,7 +53,7 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
         _searchBox(),
         Flexible(
           child: ListView.builder(
-            itemBuilder: (context, index) => _listCard(),
+            itemBuilder: (context, index) => _listCard("60439351d688381f49257c02", false),
             itemCount: 10,
           ),
         ),
@@ -62,14 +62,34 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
   }
 
   Widget _doneCasesBody() {
-    return Text("Sonuçlanan Davalar");
+    return Column(
+      children: [
+        _searchBox(),
+        Flexible(
+          child: ListView.builder(
+            itemBuilder: (context, index) => _listCard("60439351d688381f49257c02", true),
+            itemCount: 10,
+          ),
+        ),
+      ],
+    );
   }
 
-  Widget _postPonedCasesBody() {
-    return Text("Ertelenen Davalar");
+  Widget _postponedCasesBody() {
+    return Column(
+      children: [
+        _searchBox(),
+        Flexible(
+          child: ListView.builder(
+            itemBuilder: (context, index) => _listCard("60439351d688381f49257c02", false),
+            itemCount: 10,
+          ),
+        ),
+      ],
+    );
   }
 
-  Widget _listCard() {
+  Widget _listCard(String caseNo, bool caseState) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -104,7 +124,7 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
                   width: 8,
                 ),
                 Text(
-                  "60439351d688381f49257c02",
+                  caseNo,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -119,7 +139,7 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
                   width: 8,
                 ),
                 Text(
-                  "Sonuçlandı",
+                    caseState ? "Sonuçlandı" : "Devam Ediyor",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 Spacer(),
@@ -152,6 +172,7 @@ class _CaseListPageCitizenState extends State<CaseListPageCitizen> {
           child: TextFormField(
             textAlignVertical: TextAlignVertical.center,
             maxLines: 1,
+            cursorColor: Color(0XFF2387C1),
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
               suffixIcon: Icon(Icons.search),

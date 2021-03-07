@@ -49,12 +49,22 @@ class _SignInPageState extends State<SignInPage> {
                   padding: EdgeInsets.all(16.0),
                   margin: EdgeInsets.fromLTRB(46.0, 30.0, 46.0, 0.0),
                   child: Center(
-                    child: Text(
-                      "YETKİLİ GİRİŞİ",
-                      style: TextStyle(
-                        color: Colors.grey[420],
-                        fontSize: 18,
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(Icons.person_add_alt_1),
+                        Spacer(),
+                        Text(
+                          "Yetkili Girişi",
+                          style: TextStyle(
+                            color: Colors.grey[420],
+                            fontSize: 18,
+                          ),
+
+                        ),
+                        Spacer(),
+                        Icon(Icons.person_add_alt_1,color: Colors.white,),
+                      ],
                     ),
                   ),
                   decoration: BoxDecoration(
@@ -80,9 +90,18 @@ class _SignInPageState extends State<SignInPage> {
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                   child: Center(
-                    child: Text(
-                      "VATANDAŞ GİRİŞİ",
-                      style: TextStyle(color: Colors.grey[420], fontSize: 18),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(Icons.person),
+                        Spacer(),
+                        Text(
+                          "Vatandaş Girişi",
+                          style: TextStyle(color: Colors.grey[420], fontSize: 18),
+                        ),
+                        Spacer(),
+                        Icon(Icons.person,color: Colors.white,),
+                      ],
                     ),
                   ),
                 ),
